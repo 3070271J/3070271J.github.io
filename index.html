@@ -1,7 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Germany Web Map</title>
+    
+    <!-- Mapbox GL JS -->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.js"></script>
+
+    <!-- Mapbox Geocoder Plugin -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js'></script>
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css' type='text/css' />
+
+    <link rel="stylesheet" href="styles.css">
+
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with Github Pages.</p>
+    <div id="map"></div>
+  <div id="button"><button id="random-landmark">Explore a Random Landmark</button>
+  </div>
+  <div id="dropdown">
+    <select id="filter">
+      <option value="" disabled selected>Please select an option:</option>
+      <option value="all-landmarks">all landmarks</option>
+      <option value="castles">castles</option>
+      <option value="churches">churches</option>
+      <option value="city-gates">city gates</option>
+      <option value="historic-houses">historic houses</option>
+      <option value="manors">manors</option>
+      <option value="monasteries">monasteries</option>
+      <option value="ruins">ruins</option>
+      <option value="towers">towers</option>
+    </select>
+  </div>
+  <div id = "legend">
+    <div id = "legend_title">Landmark Types</div>
+    <div class="icon"><img src="https://raw.githubusercontent.com/3070271J/3070271J.github.io/refs/heads/main/ferry-JP.svg" alt="Tower">Tower</div>
+    <div class="icon">
+    <img src="https://raw.githubusercontent.com/3070271J/3070271J.github.io/refs/heads/main/castle.svg" alt="Castle">Castle, City Wall or Ruin</div>
+    <div class="icon"><img src="https://raw.githubusercontent.com/3070271J/3070271J.github.io/refs/heads/main/home.svg" alt="House">Historic House</div>
+    <div class="icon"><img src="https://raw.githubusercontent.com/3070271J/3070271J.github.io/refs/heads/main/museum.svg" alt="Manor">Manor</div>
+    <div class="icon"><img src="https://raw.githubusercontent.com/3070271J/3070271J.github.io/refs/heads/main/religious-christian.svg" alt="Church">Church or Monastery</div>
+  </div>
 </body>
 </html>
