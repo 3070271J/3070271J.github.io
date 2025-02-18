@@ -1,4 +1,5 @@
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -17,12 +18,14 @@ p {
   font-family: Palatino Linotype;
 }
 
+/* legend text */
 .icon {
   font-family: Helvetica;
   padding-top: 2px;
   padding-bottom: 2px;
 }
 
+/* padding between legend text and icons */
 img {
   padding-right: 5px;
 }
@@ -32,18 +35,21 @@ img {
   height: 100vh;
 }
 
+/* dropdown arrow */
 #dropdown {
   position: absolute;
   top: 0.6rem;
   left: 29.5rem;
 }
 
+/* selected category on dropdown arrow */
 #dropdown select {
-  background-color: #A8D8B9;
+  background-color: #a8d8b9;
   font-family: helvetica;
   font-weight: bold;
 }
 
+/* legend */
 #legend {
   position: absolute;
   bottom: 1.5rem;
@@ -51,9 +57,10 @@ img {
   background-color: rgba(168, 216, 185, 0.6);
   padding: 10px;
   border-radius: 5px;
-  border: 5px solid #2A3B2D;
+  border: 5px solid #2a3b2d;
 }
 
+/* legend title */
 #legend_title {
   text-align: center;
   font-size: 1.5rem;
@@ -67,9 +74,9 @@ img {
   position: absolute;
   top: 0.6rem;
   left: 16rem;
-  background-color: #A8D8B9;
+  background-color: #a8d8b9;
   font-family: helvetica;
-  border: 3px solid #2A3B2D;
+  border: 3px solid #2a3b2d;
   border-radius: 10px;
   padding-left: 10px;
   padding-right: 10px;
@@ -78,8 +85,9 @@ img {
   font-weight: bold;
 }
 
+/* Hover over button */
 #random-landmark:hover {
-  background-color: #6A9A8A;
+  background-color: #6a9a8a;
 }
 
 /* Popup Box Rectangle */
@@ -106,30 +114,33 @@ img {
 /* Website Links */
 .mapboxgl-popup-content a {
   color: #d0b88a;
+  word-wrap: break-word; /*Avoid link overflowing out of popup box */
 }
 .mapboxgl-popup-content a:hover {
-  color: #B49A63;
+  color: #b49a63;
 }
 
+/* Zoom and compass */
 .mapboxgl-ctrl-group {
-  background: rgba(168, 216, 185, 0.6) !important; /* 0.7 = 70% opacity */
-border-radius: 5px !important;
+  background: rgba(168, 216, 185, 0.6) !important;
+  border-radius: 5px !important;
 }
 
 /* Geocoder Box */
 .mapboxgl-ctrl-geocoder.mapboxgl-ctrl {
-  background: rgba(168, 216, 185, 0.6); /* 0.7 = 70% opacity */
-border-radius: 5px;
+  background: rgba(168, 216, 185, 0.6);
+  border-radius: 5px;
 }
 
 /* Geocoder Placeholder Text */
 .mapboxgl-ctrl-geocoder input::placeholder {
-  color: #2A3B2D;
+  color: #2a3b2d;
   font-size: 16px;
   font-style: italic;
 }
 
 /* Magnifying Glass icon */
 .mapboxgl-ctrl-geocoder .mapboxgl-ctrl-geocoder--icon {
-  fill: #2A3B2D;
+  fill: #2a3b2d;
 }
+
