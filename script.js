@@ -3,12 +3,11 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiMzA3MDI3MWoiLCJhIjoiY201d2RuY3VxMDluMjJscXp5ZW42MG1zeCJ9.c7fETI_inRzWjln-_ePd-w';
 
 // Setting up the Mapbox map to display in codepen - linking to my style created.
-
 const map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/3070271j/cm75hdvcm00it01qva4e5dboq',
-  center: [10.4515, 51.1657], //Approximate coordinates for the centre of Germany.
-  zoom: 4.5 //Appropriate default zoom level for the map.
+  center: [10.4515, 51.1657], // Approximate coordinates for the centre of Germany.
+  zoom: 4.5 // Appropriate default zoom level for the map.
 });
 
 // Add navigation controls - compass and zoom-in and zoom-out buttons
@@ -31,12 +30,17 @@ function createPopup(landmark, coords = null) {
 
 // Function identifying landmarks available at clicked location
 function showPopup(event) {
+  
+  if (currentPopup) {
+    currentPopup.remove();
+  } //Needed to remove any existing popups when action is triggered
+  
   const landmarks = map.queryRenderedFeatures(event.point, {
     layers: categories
   });
 
   if (!landmarks.length) return;
-  createPopup(landmarks[0]);
+  currentPopup = createPopup(landmarks[0]);
 } //Triggers createPopup function
 
 map.on('click', showPopup); //Triggers showPopup function when user clicks on map
@@ -85,14 +89,18 @@ map.on('load', () => {
 // Random landmark button interaction
 let currentPopup = null; //Used to track later which popup is open - first set it to null
 
-function visitRandomLandmark() { //Triggers selection of a random landmark when button is clicked
-  let allLandmarks = []; //Array to hold all landmarks
+let allLandmarks = []; //Array to hold all landmarks
 
+
+
+function visitRandomLandmark() { //Triggers selection of a random landmark when button is clicked
+  
   categories.forEach(layer => {
     let landmarks = map.querySourceFeatures('composite', { sourceLayer: layer });
     allLandmarks = allLandmarks.concat(landmarks);
   }); //Puts landmarks from each layer into the new landmarks variable
 
+  
   //Mathematical operation for actually selecting the random landmark - generating a random number between 0 and 1, incorporating the total number of landmarks in the array to pick a random landmark.
   let randomLandmark = allLandmarks[Math.floor(Math.random() * allLandmarks.length)];
 
@@ -115,7 +123,7 @@ function visitRandomLandmark() { //Triggers selection of a random landmark when 
 document.getElementById("random-landmark").addEventListener("click", visitRandomLandmark); //Triggers the visitRandomLandmark function when button is clicked.
 
 //Search Box Geocoder code here
-const searchBox = new MapboxGeocoder({ //Ini
+const searchBox = new MapboxGeocoder({ 
   accessToken: mapboxgl.accessToken, // Set the access token
   mapboxgl: mapboxgl, // Set the mapbox-gl instance
   marker: false, // Do not use the default marker style
@@ -125,4 +133,4 @@ const searchBox = new MapboxGeocoder({ //Ini
     latitude: 10.4515
   } // Coordinates of Germany centre - so results near this point are prioritised
 });
-map.addControl(searchBox, "top-right");
+map.addControl(searchBox, "top-left");
