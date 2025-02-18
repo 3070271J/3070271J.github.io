@@ -1,50 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Germany Web Map</title>
 
-    <!-- Mapbox GL: JS styles and library -->
-    <link href="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.css" rel="stylesheet">
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Germany Web Map</title>
 
-    <!-- Mapbox Geocoder plugins for the search box -->
-    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js'></script>
-    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css' type='text/css' />
+  <!-- Mapbox GL: JS styles and library -->
+  <link href="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.css" rel="stylesheet">
+  <script src="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.js"></script>
 
-    <!-- Linking the CSS styles to the HTML -->
-    <link rel="stylesheet" href="style.css">
-  </head>
+  <!-- Mapbox Geocoder plugins for the search box -->
+  <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js'></script>
+  <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css' type='text/css' />
 
-  <body>
-    <div id="map"></div> <!-- Web Map Container -->
-    <div id="button"><button id="random-landmark">Explore a Random Landmark!</button>
-    </div> <!-- Random Landmark Button Container -->
-    <div id="dropdown"> <!-- Dropdown arrow filter container -->
-      <select id="filter">
-        <option value="" disabled selected>Filter by building type</option>
-        <option value="all-landmarks">all landmarks</option>
-        <option value="castles">castles</option>
-        <option value="churches">churches</option>
-        <option value="city-gates">city gates</option>
-        <option value="historic-houses">historic houses</option>
-        <option value="manors">manors</option>
-        <option value="monasteries">monasteries</option>
-        <option value="ruins">ruins</option>
-        <option value="towers">towers</option>
-      </select>
+  <!-- Linking the CSS styles to the HTML -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="map"></div> <!-- Web Map Container -->
+  <div id="button"><button id="random-landmark">Explore a Random Landmark!</button>
+  </div> <!-- Random Landmark Button Container -->
+  <div id="dropdown">
+    <!-- Dropdown arrow filter container -->
+    <select id="filter">
+      <option value="" disabled selected>Filter by building type</option>
+      <option value="all-landmarks">all landmarks</option>
+      <option value="castles">castles</option>
+      <option value="churches">churches</option>
+      <option value="city-gates">city gates</option>
+      <option value="historic-houses">historic houses</option>
+      <option value="manors">manors</option>
+      <option value="monasteries">monasteries</option>
+      <option value="ruins">ruins</option>
+      <option value="towers">towers</option>
+    </select>
+  </div>
+  <div id="legend">
+    <!-- Legend Container - extracting SVG icons from Github repository -->
+    <div id="legend_title">Landmark Types</div>
+    <div class="icon"><img src="https://raw.githubusercontent.com/3070271J/3070271J.github.io/refs/heads/main/ferry-JP.svg" alt="Tower">Tower</div>
+    <div class="icon">
+      <img src="https://raw.githubusercontent.com/3070271J/3070271J.github.io/refs/heads/main/castle.svg" alt="Castle">Castle, City Wall or Ruin
     </div>
-    <div id = "legend"> <!-- Legend Container - extracting SVG icons from Github repository -->
-      <div id = "legend_title">Landmark Types</div>
-      <div class="icon"><img src="https://raw.githubusercontent.com/3070271J/3070271J.github.io/refs/heads/main/ferry-JP.svg" alt="Tower">Tower</div>
-      <div class="icon">
-        <img src="https://raw.githubusercontent.com/3070271J/3070271J.github.io/refs/heads/main/castle.svg" alt="Castle">Castle, City Wall or Ruin</div>
-      <div class="icon"><img src="https://raw.githubusercontent.com/3070271J/3070271J.github.io/refs/heads/main/home.svg" alt="House">Historic House</div>
-      <div class="icon"><img src="https://raw.githubusercontent.com/3070271J/3070271J.github.io/refs/heads/main/museum.svg" alt="Manor">Manor</div>
-      <div class="icon"><img src="https://raw.githubusercontent.com/3070271J/3070271J.github.io/refs/heads/main/religious-christian.svg" alt="Church">Church or Monastery</div>
-    </div>
-<!-- Linking the JS to the HTML -->
-    <script src="script.js"></script>
-  </body>
+    <div class="icon"><img src="https://raw.githubusercontent.com/3070271J/3070271J.github.io/refs/heads/main/home.svg" alt="House">Historic House</div>
+    <div class="icon"><img src="https://raw.githubusercontent.com/3070271J/3070271J.github.io/refs/heads/main/museum.svg" alt="Manor">Manor</div>
+    <div class="icon"><img src="https://raw.githubusercontent.com/3070271J/3070271J.github.io/refs/heads/main/religious-christian.svg" alt="Church">Church or Monastery</div>
+  </div>
+  <!-- Linking the JS to the HTML -->
+  <script src="script.js"></script>
+</body>
+
 </html>
